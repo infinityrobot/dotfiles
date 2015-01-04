@@ -5,4 +5,4 @@
 Simply clone the repo and run the setup script!
 
     $ git clone https://github.com/infinityrobot/dotfiles.git ~/.dotfiles
-    $ sh ~/.dotfiles/install.sh
+    $ zsh ~/.dotfiles/install.sh
