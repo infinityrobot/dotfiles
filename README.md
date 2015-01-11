@@ -4,7 +4,7 @@
 
 Simply run the installation script!
 
-    $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/infinityrobot/dotfiles/master/install.sh)"
+    $ curl -fsSL 'https://raw.githubusercontent.com/infinityrobot/dotfiles/master/install.sh' | bash
 
 ## Updating
 
