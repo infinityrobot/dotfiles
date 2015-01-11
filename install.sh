@@ -3,6 +3,14 @@
 # Variables
 dotfile_path=$HOME/.dotfiles
 
+# Set default shell to zsh
+if [[ $SHELL == *"zsh"* ]]; then
+  echo "Shell already set to zsh.";
+else
+  echo "Setting shell to zsh...";
+  chsh -s /bin/zsh
+fi
+
 # Install / update oh-my-zsh
 if [[ -d $HOME/.oh-my-zsh ]]; then
   echo "oh-my-zsh is already installed, updating...";
@@ -12,13 +20,6 @@ else
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
 fi
 
-# Set default shell to zsh
-if [[ $SHELL == *"zsh"* ]]; then
-  echo "Shell already set to zsh.";
-else
-  echo "Setting shell to zsh...";
-  chsh -s /bin/zsh
-fi
 
 # Install / updated dotfiles
 if [[ -d $dotfile_path ]]; then
