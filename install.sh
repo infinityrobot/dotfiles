@@ -8,7 +8,7 @@ if [[ $SHELL == *"zsh"* ]]; then
   echo "Shell already set to zsh.";
 else
   echo "Setting shell to zsh...";
-  chsh -s /bin/zsh
+  chsh -s "$(which zsh)"
 fi
 
 # Install / update oh-my-zsh
