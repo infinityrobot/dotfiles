@@ -2,7 +2,18 @@
 
 ## Installation
 
-Simply clone the repo and run the setup script!
+Simply run the installation script!
 
-    $ git clone https://github.com/infinityrobot/dotfiles.git ~/.dotfiles
-    $ zsh ~/.dotfiles/install.sh
+    $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/infinityrobot/dotfiles/master/install.sh)"
+
+## Updating
+
+To update, re-run the above installation script.
+
+## Customization
+
+Local customizations can be included in `~/.zshrc.local`.
+
+## Warnings
+
+The dotfiles require [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), which will be installed to ~/.oh-my-zsh (if not already installed) when running the setup script.
