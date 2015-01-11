@@ -2,6 +2,7 @@
 
 # Variables
 dotfile_path=$HOME/.dotfiles
+current_pwd=$PWD
 
 # Set default shell to zsh
 if [[ $SHELL == *"zsh"* ]]; then
@@ -20,14 +21,31 @@ else
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
 fi
 
-
-# Install / updated dotfiles
-if [[ -d $dotfile_path ]]; then
-  echo "Updating Infinity Robot's dotfiles...";
-  git -C "$dotfile_path" pull
-else
+# Install / update Infinty Robot's dotfiles
+install_infinity_dotfiles() {
   echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles...";
   git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
+}
+
+if [[ -d $dotfile_path ]]; then
+
+  cd "$dotfile_path"
+  git_remote=$(git config --get branch.master.remote)
+  git_url=$(git config --get remote."$git_remote".url)
+
+  if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
+    echo "Infinity Robot's dotfiles already installed. Updating..."
+    git -C "$dotfile_path" pull
+  else
+    echo "Existing dotfiles found. Backing up to ~/.dotfiles-old"
+    mv "$dotfile_path" "$dotfile_path"-old
+    install_infinity_dotfiles
+  fi
+
+  cd "$current_pwd"
+
+else
+  install_infinity_dotfiles
 fi
 
 # Add oh-my-zsh customizations
