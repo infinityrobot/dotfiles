@@ -56,7 +56,8 @@ ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.o
 # Set up symlinks
 echo "Adding required symlinks...";
 for f in $(find "$dotfile_path" -name '*.symlink'); do
-    file_path="$HOME"/.${${f##*/}%.*}
+    file_name="${f##*/}"
+    file_path="$HOME"/."${file_name%.*}"
     cp "$file_path" "$file_path"-old 2> /dev/null
     unlink "$file_path" 2> /dev/null
     rm "$file_path" 2> /dev/null
