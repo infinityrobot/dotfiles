@@ -19,3 +19,6 @@ source $ZSH/oh-my-zsh.sh
 for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh"); do
   source $f
 done
+
+# Load local zshrc
+source ~/.zshrc.local
