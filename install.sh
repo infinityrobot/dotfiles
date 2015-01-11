@@ -2,7 +2,6 @@
 
 # Variables
 dotfile_path=$HOME/.dotfiles
-current_pwd=$PWD
 
 # Set default shell to zsh
 if [[ $SHELL == *"zsh"* ]]; then
@@ -29,9 +28,8 @@ install_infinity_dotfiles() {
 
 if [[ -d $dotfile_path ]]; then
 
-  cd "$dotfile_path"
-  git_remote=$(git config --get branch.master.remote)
-  git_url=$(git config --get remote."$git_remote".url)
+  git_remote=$(git -C "$dotfile_path" config --get branch.master.remote)
+  git_url=$(git -C "$dotfile_path" config --get remote."$git_remote".url)
 
   if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
     echo "Infinity Robot's dotfiles already installed. Updating..."
@@ -41,8 +39,6 @@ if [[ -d $dotfile_path ]]; then
     mv "$dotfile_path" "$dotfile_path"-old
     install_infinity_dotfiles
   fi
-
-  cd "$current_pwd"
 
 else
   install_infinity_dotfiles
