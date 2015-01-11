@@ -63,4 +63,9 @@ for f in $(find "$dotfile_path" -name '*.symlink'); do
     ln -s "$f" "$file_path"
 done
 
+# Create .zshrc.local
+if [ ! -f "$HOME/.zshrc.local" ]; then
+  touch "$HOME/.zshrc.local"
+fi
+
 echo "Installation complete!"
