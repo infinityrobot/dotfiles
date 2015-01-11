@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-local dotfile_path=$HOME/.dotfiles
+# Variables
+dotfile_path=$HOME/.dotfiles
 
 # Install / update oh-my-zsh
 if [[ -d $HOME/.oh-my-zsh ]]; then
@@ -30,13 +31,13 @@ fi
 
 # Add oh-my-zsh customizations
 echo "Adding oh-my-zsh customizations from Infinity Robot's dotfiles...";
-local theme_name="infinityrobot"
+theme_name="infinityrobot"
 ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.oh-my-zsh/custom/themes/"$theme_name".zsh-theme 2> /dev/null
 
 # Set up symlinks
 echo "Adding required symlinks...";
 for f in $(find "$dotfile_path" -name '*.symlink'); do
-    local file_path="$HOME"/.${${f##*/}%.*}
+    file_path="$HOME"/.${${f##*/}%.*}
     cp "$file_path" "$file_path"-old 2> /dev/null
     unlink "$file_path" 2> /dev/null
     rm "$file_path" 2> /dev/null
