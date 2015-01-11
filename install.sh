@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 local dotfile_path=$HOME/.dotfiles
 
 # Install / update oh-my-zsh
