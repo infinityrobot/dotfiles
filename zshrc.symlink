@@ -6,9 +6,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # Set name of the theme to load
 ZSH_THEME="infinityrobot"
 
-# Enable command auto-correction.
-ENABLE_CORRECTION="true"
-
 # Plugins to load
 plugins=(brew bundler encode64 git rails)
 
