@@ -18,4 +18,4 @@ for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh"); do
 done
 
 # Load local zshrc
-source ~/.zshrc.local
+source $HOME/.zshrc.local
