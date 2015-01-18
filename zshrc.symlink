@@ -19,3 +19,9 @@ done
 
 # Load local zshrc
 source $HOME/.zshrc.local
+
+# Dotfiles update function
+update_dotfiles() {
+  echo "Updating dotfiles..."
+  git -C "$DOTFILES" pull
+}
