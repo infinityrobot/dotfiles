@@ -34,6 +34,13 @@ rescue LoadError
   puts 'Missing gem `hirb`'
 end
 
+# Awesome Print for sexier outputs - https://github.com/michaeldv/awesome_print
+begin
+  require 'awesome_print'
+  AwesomePrint.irb!
+rescue LoadError
+  puts 'Missing gem `awesome_print`'
+end
 
 # Build a simple colourful IRB prompt
 IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
