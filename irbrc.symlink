@@ -1,5 +1,8 @@
 require 'rubygems'
-# This file must be symlinked in ~/
+
+# Require core
+require 'date'
+require 'time'
 
 # ANSI colour constants
 ANSI = {}
@@ -28,9 +31,6 @@ rescue LoadError
   puts 'Missing gem `hirb`'
 end
 
-# Require core
-require 'date'
-require 'time'
 
 # Build a simple colourful IRB prompt
 IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
