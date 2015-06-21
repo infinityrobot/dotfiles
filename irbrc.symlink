@@ -4,6 +4,9 @@ require 'rubygems'
 require 'date'
 require 'time'
 
+# Alias for quick exit
+alias q exit
+
 # ANSI colour constants
 ANSI = {}
 ANSI[:RESET]     = "\e[0m"
