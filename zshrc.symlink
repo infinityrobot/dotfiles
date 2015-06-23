@@ -22,6 +22,5 @@ source $HOME/.zshrc.local
 
 # Dotfiles update function
 update_dotfiles() {
-  echo "Updating dotfiles..."
-  git -C "$DOTFILES" pull
+  curl -fsSL 'https://raw.githubusercontent.com/infinityrobot/dotfiles/master/install.sh' | bash
 }
