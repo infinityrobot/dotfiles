@@ -4,6 +4,8 @@
 ._*
 .Spotlight-V100
 .Trashes
+ehthumbs.db
+Thumbs.db
 
 # Ignore files that may appear on external disks
 .AppleDB
@@ -11,5 +13,4 @@
 Network Trash Folder
 Temporary Items
 .apdisk
-.Spotlight-V100
 .Trashes
