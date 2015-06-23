@@ -1,2 +1,2 @@
--d postgresql # Preconfigure Postgres as database
--B # Skip bundle install
+# Preconfigure Postgres as database, skip bundle install and skip Test::Unit
+-d postgresql -B -T
