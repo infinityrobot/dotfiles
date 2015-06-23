@@ -64,6 +64,9 @@ done
 # Add global gitignore file
 git config --global core.excludesfile ~/.gitignore_global
 
+# Add Atom as global git editor
+git config --global core.editor atom
+
 # Create .zshrc.local
 if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
