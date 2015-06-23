@@ -61,6 +61,9 @@ for f in $(find "$dotfile_path" -name '*.symlink'); do
     ln -s "$f" "$file_path"
 done
 
+# Add global gitignore file
+git config --global core.excludesfile ~/.gitignore_global
+
 # Create .zshrc.local
 if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
