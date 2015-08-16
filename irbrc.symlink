@@ -29,7 +29,7 @@ end
 # Hirb for sexy outputs - https://github.com/cldwalker/hirb
 begin
   require 'hirb'
-  Hirb.enable
+  extend Hirb::Console
 rescue LoadError
   puts 'Missing gem `hirb`'
 end
