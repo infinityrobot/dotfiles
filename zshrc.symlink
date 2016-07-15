@@ -9,7 +9,7 @@ ZSH_THEME="infinityrobot"
 # Plugins to load
 plugins=(brew bundler encode64 git rails)
 
-# Load oh-my-zsh 
+# Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Custom imports
