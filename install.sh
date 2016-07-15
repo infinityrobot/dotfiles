@@ -20,6 +20,9 @@ else
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
 fi
 
+# Install m-cli (https://github.com/rgcr/m-cli)
+curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
+
 # Install / update Infinty Robot's dotfiles
 install_infinity_dotfiles() {
   echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles...";
