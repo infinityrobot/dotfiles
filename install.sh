@@ -51,6 +51,7 @@ fi
 echo "Adding oh-my-zsh customizations from Infinity Robot's dotfiles...";
 theme_name="infinityrobot"
 mkdir -p "$dotfile_path"/oh-my-zsh/custom/themes/
+mkdir -p "$HOME"/.oh-my-zsh/custom/themes/
 ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.oh-my-zsh/custom/themes/"$theme_name".zsh-theme 2> /dev/null
 
 # Set up symlinks
