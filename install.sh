@@ -57,17 +57,17 @@ ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.o
 # Set up symlinks
 echo "Adding required symlinks...";
 for f in $(find "$dotfile_path" -name '*.symlink'); do
-    file_name="${f##*/}"
-    file_path="$HOME"/."${file_name%.*}"
+  file_name="${f##*/}"
+  file_path="$HOME"/."${file_name%.*}"
 
-    if ! diff "$f" "$file_path" >/dev/null ; then
-      echo "Existing $file_name found – copying backup to $file_name-old"
-      cp "$file_path" "$file_path"-old 2> /dev/null
-    fi
+  if ! diff "$f" "$file_path" >/dev/null ; then
+    echo "Existing $file_name found – copying backup to $file_name-old"
+    cp "$file_path" "$file_path"-old 2> /dev/null
+  fi
 
-    unlink "$file_path" 2> /dev/null
-    rm "$file_path" 2> /dev/null
-    ln -s "$f" "$file_path"
+  unlink "$file_path" 2> /dev/null
+  rm "$file_path" 2> /dev/null
+  ln -s "$f" "$file_path"
 done
 
 # Add global gitignore file
