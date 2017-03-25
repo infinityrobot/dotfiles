@@ -88,7 +88,7 @@ brew tap homebrew/bundle
 read -p "Do you want to install infinityrobot's apps & set up dev environment? <y/n> " brew_prompt
 if [[ $brew_prompt =~ [yY](es)* ]]; then
   # Install Brewfile
-  brew bundle --file="$dotfile_path"/packages/Brewfile
+  brew bundle --file="$dotfile_path"/packages/Brewfile -v
   brew cleanup --force
   rm -f -r /Library/Caches/Homebrew/*
 
