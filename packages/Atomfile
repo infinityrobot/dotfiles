@@ -4,7 +4,6 @@ file-icons
 highlight-selected
 linter
 linter-eslint
-markdown-preview
 merge-conflicts
 minimap
 minimap-pigments
@@ -16,7 +15,6 @@ minimap-highlight-selected
 pigments
 sublime-style-column-selection
 language-haml
-language-sass
 linter-rubocop
 linter-haml
 linter-sass-lint
