@@ -1,0 +1,32 @@
+cask_args appdir: "/Applications"
+
+# Taps.
+tap "caskroom/cask"
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# Brews.
+brew "mas"
+brew "m-cli"
+brew "heroku"
+brew "postgresql", restart_service: true
+brew "rbenv"
+brew "wget"
+
+# Casks.
+cask "java"
+cask "eclipse-java"
+cask "atom"
+cask "audio-hijack"
+cask "dropbox"
+cask "github-desktop"
+cask "microsoft-office"
+cask "nylas-mail"
+cask "skype"
+
+# Mac App Store apps.
+mas "Capo", id: 696977615
+mas "Fantastical 2", id: 975937182
+mas "Sketch", id: 852320343
+mas "Slack", id: 803453959

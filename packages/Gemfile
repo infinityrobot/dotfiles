@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "bundler"
+gem "haml_lint"
+gem "pg"
+gem "rails"
+gem "rubocop"

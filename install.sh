@@ -20,9 +20,6 @@ else
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
 fi
 
-# Install m-cli (https://github.com/rgcr/m-cli)
-curl -fsSL https://raw.githubusercontent.com/rgcr/m-cli/master/install.sh | sh
-
 # Install / update Infinty Robot's dotfiles
 install_infinity_dotfiles() {
   echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles...";
@@ -70,15 +67,47 @@ for f in $(find "$dotfile_path" -name '*.symlink'); do
   ln -s "$f" "$file_path"
 done
 
-# Add global gitignore file
-git config --global core.excludesfile ~/.gitignore_global
-
-# Add Atom as global git editor
-git config --global core.editor atom
-
 # Create .zshrc.local
 if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
+fi
+
+# Install Xcode dev tools
+xcode-select --install
+
+# Install Homebrew (https://github.com/Homebrew/brew)
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew doctor
+
+# Install Homebrew services & bundle
+brew tap homebrew/services
+brew tap homebrew/bundle
+
+# Install and configure awesome apps & dev tools.
+read -p "Do you want to install infinityrobot's apps & set up dev environment? <y/n> " brew_prompt
+if [[ $brew_prompt =~ [yY](es)* ]]; then
+  # Install Brewfile
+  brew bundle --file="$dotfile_path"/packages/Brewfile
+  brew cleanup --force
+  rm -f -r /Library/Caches/Homebrew/*
+
+  # Set up rbenv & Ruby (https://github.com/rbenv/rbenv)
+  rbenv init
+  latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
+  rbenv install $latest_ruby_version
+  rbenv --global $latest_ruby_version
+  gem install bundler
+  bundle install --gemfile="$dotfile_path"/packages/Gemfile
+  rm -f "$dotfile_path"/packages/Gemfile.lock
+
+  # Install Atom packages
+  apm install --packages-file "$dotfile_path"/packages/Atomfile
+  apm cleanup
+
+  # Configure git
+  git config --global core.editor atom
+  git config --global core.excludesfile ~/.gitignore_global
 fi
 
 echo "Installation complete!"
