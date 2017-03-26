@@ -13,6 +13,7 @@ brew "m-cli"
 brew "heroku"
 brew "postgresql", restart_service: true
 brew "rbenv"
+brew "redis"
 brew "wget"
 
 # Casks.
