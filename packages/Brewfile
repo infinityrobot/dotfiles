@@ -27,6 +27,7 @@ cask "google-chrome"
 cask "microsoft-office"
 cask "nylas-mail"
 cask "skype"
+cask "whatsapp"
 
 # Mac App Store apps.
 mas "Capo", id: 696977615
