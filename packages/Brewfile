@@ -32,14 +32,15 @@ cask "dropbox"
 cask "github-desktop"
 cask "google-chrome"
 cask "microsoft-office"
-cask "nylas-mail"
+cask "polymail"
+cask "sketch"
 cask "skype"
+cask "slack"
 cask "whatsapp"
 
 # Mac App Store apps.
 mas "Capo",          id: 696_977_615
 mas "Fantastical 2", id: 975_937_182
-mas "Sketch",        id: 852_320_343
 mas "Slack",         id: 803_453_959
 mas "Things3",       id: 904_280_696
 mas "Logic Pro X",   id: 634_148_309
