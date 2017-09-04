@@ -8,15 +8,20 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Brews.
+brew "awscli"
+brew "elixir"
 brew "git"
 brew "mas"
 brew "memcached"
 brew "m-cli"
+brew "node"
 brew "heroku"
 brew "postgresql", restart_service: true
 brew "rbenv"
 brew "redis"
 brew "wget"
+brew "yarn"
+brew "youtube-dl"
 
 # Casks.
 cask "java"
