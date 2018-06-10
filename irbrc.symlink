@@ -9,6 +9,7 @@ require "irb/completion"
 require "irb/ext/save-history"
 
 # Aliases.
+alias quit exit
 alias q exit
 
 # ANSI colour constants.
