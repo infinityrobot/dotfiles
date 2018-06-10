@@ -40,13 +40,6 @@ rescue LoadError
   puts 'Missing gem `hirb`'
 end
 
-# Awesome Print for sexier outputs - https://github.com/michaeldv/awesome_print
-begin
-  require 'awesome_print'
-  AwesomePrint.irb!
-rescue LoadError
-  puts 'Missing gem `awesome_print`'
-end
 
 # Build a simple colourful IRB prompt.
 IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
@@ -58,9 +51,12 @@ IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
   :AUTO_INDENT => true }
 IRB.conf[:PROMPT_MODE] = :SIMPLE_COLOR
 
-# Enable route helpers in Rails console
-if defined? Rails
-  include Rails.application.routes.url_helpers
+# Awesome Print for sexier outputs - https://github.com/michaeldv/awesome_print.
+begin
+  require "awesome_print"
+  AwesomePrint.irb!
+rescue LoadError
+  puts "Missing gem `awesome_print`"
 end
 
 # Ensure terminal is reset at exit.
@@ -73,4 +69,9 @@ class Object
   def local_methods
     (methods - self.class.superclass.instance_methods).sort
   end
+end
+
+# Enable route helpers in Rails console.
+if defined? Rails
+  include Rails.application.routes.url_helpers
 end
