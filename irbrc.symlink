@@ -1,13 +1,13 @@
 require "rubygems"
 
-# Require core
+# Require core.
 require "date"
 require "time"
 
-# Alias for quick exit
+# Aliases.
 alias q exit
 
-# ANSI colour constants
+# ANSI colour constants.
 ANSI = {}
 ANSI[:RESET]     = "\e[0m"
 ANSI[:BOLD]      = "\e[1m"
@@ -21,7 +21,8 @@ ANSI[:BLUE]      = "\e[34m"
 ANSI[:MAGENTA]   = "\e[35m"
 ANSI[:CYAN]      = "\e[36m"
 ANSI[:WHITE]     = "\e[37m"
-# wrap ANSI escape sequences in Readline ignore markers
+
+# Wrap ANSI escape sequences in Readline ignore markers.
 ANSI.each do |k,v|
   v.replace "\001#{v}\002"
 end
@@ -42,7 +43,7 @@ rescue LoadError
   puts 'Missing gem `awesome_print`'
 end
 
-# Build a simple colourful IRB prompt
+# Build a simple colourful IRB prompt.
 IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
   :PROMPT_I => "#{ANSI[:BLUE]}>>#{ANSI[:RESET]} ",
   :PROMPT_N => "#{ANSI[:BLUE]}>>#{ANSI[:RESET]} ",
@@ -57,12 +58,12 @@ if defined? Rails
   include Rails.application.routes.url_helpers
 end
 
-# Ensure terminal is reset at exit
+# Ensure terminal is reset at exit.
 Kernel.at_exit do
   puts "#{ANSI[:RESET]}"
 end
 
-# Helper to show methods that are defined directly on an object
+# Helper to show methods that are defined directly on an object.
 class Object
   def local_methods
     (methods - self.class.superclass.instance_methods).sort
