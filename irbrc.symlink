@@ -32,14 +32,6 @@ ANSI.each do |k,v|
   v.replace "\001#{v}\002"
 end
 
-# Hirb for sexy outputs - https://github.com/cldwalker/hirb
-begin
-  require 'hirb'
-  extend Hirb::Console
-rescue LoadError
-  puts 'Missing gem `hirb`'
-end
-
 
 # Build a simple colourful IRB prompt.
 IRB.conf[:PROMPT][:SIMPLE_COLOR] = {
