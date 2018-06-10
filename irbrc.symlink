@@ -1,8 +1,8 @@
-require 'rubygems'
+require "rubygems"
 
 # Require core
-require 'date'
-require 'time'
+require "date"
+require "time"
 
 # Alias for quick exit
 alias q exit
