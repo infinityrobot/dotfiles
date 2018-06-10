@@ -4,6 +4,10 @@ require "rubygems"
 require "date"
 require "time"
 
+# Extend IRB features.
+require "irb/completion"
+require "irb/ext/save-history"
+
 # Aliases.
 alias q exit
 
