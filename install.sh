@@ -37,15 +37,13 @@ else
   echo "✔ zsh installed!"
 fi
 
-install_infinity_dotfiles() {
-  echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles...";
 # Install / update infinityrobot's dotfiles.
+install_dotfiles() {
   echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles..."
   git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
 }
 
 if [[ -d $dotfile_path ]]; then
-
   git_remote=$(git -C "$dotfile_path" config --get branch.master.remote)
   git_url=$(git -C "$dotfile_path" config --get remote."$git_remote".url)
 
@@ -56,12 +54,11 @@ if [[ -d $dotfile_path ]]; then
   else
     echo "Existing dotfiles found. Backing up to ~/.dotfiles-old..."
     mv "$dotfile_path" "$dotfile_path"-old
-    install_infinity_dotfiles
     echo "✔ Existing dotfiles backed up!"
+    install_dotfiles
   fi
-
 else
-  install_infinity_dotfiles
+  install_dotfiles
 fi
 
 # Add oh-my-zsh customizations.
