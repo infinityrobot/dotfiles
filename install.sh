@@ -30,6 +30,7 @@ fi
 if [[ $platform == "Linux" ]]; then
   echo "Upgrading Linux packages..."
   sudo apt-get update
+  sudo apt-get install build-essential curl file git
   sudo apt-get upgrade
   sudo apt autoremove
   echo "✔ Linux packages upgraded!"
