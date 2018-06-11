@@ -17,6 +17,22 @@ if [[ $platform == "Darwin" ]]; then
   echo "✔ Xcode dev tools installed!"
 fi
 
+# Install Homebrew if on macOS (https://github.com/Homebrew/brew).
+if [[ $platform == "Darwin" ]]; then
+  echo "Installing Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "✔ Homebrew installed!"
+# Install Linuxbrew if on Linux (https://github.com/Linuxbrew/brew).
+elif [[ $platform == "Linux" ]]; then
+  echo "Installing Linuxbrew..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  echo "✔ Linuxbrew installed!"
+fi
+
+# Update & doctor once installed.
+brew update
+brew doctor
+
 # Set the default shell to zsh.
 if [[ $SHELL == *"zsh"* ]]; then
   echo "✔ Shell already set to zsh!"
@@ -91,14 +107,6 @@ if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
 fi
 
-# Install Homebrew (https://github.com/Homebrew/brew)
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew doctor
-
-# Install Homebrew services & bundle
-brew tap homebrew/services
-brew tap homebrew/bundle
 
 # Install & configure awesome apps & dev tools.
 read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
