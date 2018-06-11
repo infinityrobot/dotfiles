@@ -18,3 +18,4 @@ language-haml
 linter-rubocop
 linter-haml
 linter-sass-lint
+teletype
