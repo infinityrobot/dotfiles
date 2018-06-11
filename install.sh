@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# ---------------------------------------------------------------------------- #
 # Variables
+# ---------------------------------------------------------------------------- #
 dotfile_path=$HOME/.dotfiles
+platform="$(uname -s)"
 
 # Set default shell to zsh
 if [[ $SHELL == *"zsh"* ]]; then
