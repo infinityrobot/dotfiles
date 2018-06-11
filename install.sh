@@ -6,7 +6,6 @@
 dotfile_path=$HOME/.dotfiles
 platform="$(uname -s)"
 
-# Set default shell to zsh
 # ---------------------------------------------------------------------------- #
 # macOS dev tools
 # ---------------------------------------------------------------------------- #
@@ -18,25 +17,30 @@ if [[ $platform == "Darwin" ]]; then
   echo "✔ Xcode dev tools installed!"
 fi
 
+# Set the default shell to zsh.
 if [[ $SHELL == *"zsh"* ]]; then
-  echo "Shell already set to zsh.";
+  echo "✔ Shell already set to zsh!"
 else
-  echo "Setting shell to zsh...";
   chsh -s "$(which zsh)"
+  echo "Setting shell to zsh..."
+  echo "✔ Shell set to zsh!"
 fi
 
-# Install / update oh-my-zsh
+# Install / update oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh).
 if [[ -d $HOME/.oh-my-zsh ]]; then
-  echo "oh-my-zsh is already installed, updating...";
+  echo "oh-my-zsh is already installed, updating..."
   git -C "$HOME"/.oh-my-zsh pull
+  echo "✔ Updated zsh!"
 else
-  echo "Installing oh-my-zsh in ~/.oh-my-zsh...";
+  echo "Installing oh-my-zsh in ~/.oh-my-zsh..."
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
+  echo "✔ zsh installed!"
 fi
 
-# Install / update Infinty Robot's dotfiles
 install_infinity_dotfiles() {
   echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles...";
+# Install / update infinityrobot's dotfiles.
+  echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles..."
   git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
 }
 
@@ -48,25 +52,28 @@ if [[ -d $dotfile_path ]]; then
   if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
     echo "Infinity Robot's dotfiles already installed. Updating..."
     git -C "$dotfile_path" pull
+    echo "✔ Updated dotfiles!"
   else
-    echo "Existing dotfiles found. Backing up to ~/.dotfiles-old"
+    echo "Existing dotfiles found. Backing up to ~/.dotfiles-old..."
     mv "$dotfile_path" "$dotfile_path"-old
     install_infinity_dotfiles
+    echo "✔ Existing dotfiles backed up!"
   fi
 
 else
   install_infinity_dotfiles
 fi
 
-# Add oh-my-zsh customizations
-echo "Adding oh-my-zsh customizations from Infinity Robot's dotfiles...";
+# Add oh-my-zsh customizations.
+echo "Adding oh-my-zsh customizations from Infinity Robot's dotfiles..."
 theme_name="infinityrobot"
 mkdir -p "$dotfile_path"/oh-my-zsh/custom/themes/
 mkdir -p "$HOME"/.oh-my-zsh/custom/themes/
 ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.oh-my-zsh/custom/themes/"$theme_name".zsh-theme 2> /dev/null
+echo "✔ oh-my-zsh customizations added!"
 
-# Set up symlinks
-echo "Adding required symlinks...";
+# Set up symlinks.
+echo "Adding required symlinks..."
 for f in $(find "$dotfile_path" -name '*.symlink'); do
   file_name="${f##*/}"
   file_path="$HOME"/."${file_name%.*}"
@@ -80,6 +87,7 @@ for f in $(find "$dotfile_path" -name '*.symlink'); do
   rm "$file_path" 2> /dev/null
   ln -s "$f" "$file_path"
 done
+echo "✔ Symlinks added!"
 
 # Create .zshrc.local
 if [ ! -f "$HOME/.zshrc.local" ]; then
