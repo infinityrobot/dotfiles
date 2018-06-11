@@ -17,6 +17,10 @@ if [[ $platform == "Darwin" ]]; then
   echo "✔ Xcode dev tools installed!"
 fi
 
+# ---------------------------------------------------------------------------- #
+# Brew
+# ---------------------------------------------------------------------------- #
+
 # Install Homebrew if on macOS (https://github.com/Homebrew/brew).
 if [[ $platform == "Darwin" ]]; then
   echo "Installing Homebrew..."
@@ -32,6 +36,10 @@ fi
 # Update & doctor once installed.
 brew update
 brew doctor
+
+# ---------------------------------------------------------------------------- #
+# Shell
+# ---------------------------------------------------------------------------- #
 
 # Install zsh using brew.
 brew install zsh
@@ -110,6 +118,9 @@ if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
 fi
 
+# ---------------------------------------------------------------------------- #
+# Environment
+# ---------------------------------------------------------------------------- #
 
 # Install & configure awesome apps & dev tools.
 read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
