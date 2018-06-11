@@ -7,6 +7,17 @@ dotfile_path=$HOME/.dotfiles
 platform="$(uname -s)"
 
 # Set default shell to zsh
+# ---------------------------------------------------------------------------- #
+# macOS dev tools
+# ---------------------------------------------------------------------------- #
+
+# Install Xcode dev tools if on macOS.
+if [[ $platform == "Darwin" ]]; then
+  echo "Installing Xcode dev tools..."
+  xcode-select --install
+  echo "✔ Xcode dev tools installed!"
+fi
+
 if [[ $SHELL == *"zsh"* ]]; then
   echo "Shell already set to zsh.";
 else
@@ -74,9 +85,6 @@ done
 if [ ! -f "$HOME/.zshrc.local" ]; then
   touch "$HOME/.zshrc.local"
 fi
-
-# Install Xcode dev tools
-xcode-select --install
 
 # Install Homebrew (https://github.com/Homebrew/brew)
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
