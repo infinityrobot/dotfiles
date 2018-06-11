@@ -21,8 +21,8 @@ fi
 if [[ $SHELL == *"zsh"* ]]; then
   echo "✔ Shell already set to zsh!"
 else
-  chsh -s "$(which zsh)"
   echo "Setting shell to zsh..."
+  chsh -s "$(which zsh)" "$USER"
   echo "✔ Shell set to zsh!"
 fi
 
