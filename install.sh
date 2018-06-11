@@ -31,6 +31,7 @@ if [[ $platform == "Linux" ]]; then
   echo "Upgrading Linux packages..."
   sudo apt-get update
   sudo apt-get upgrade
+  sudo apt autoremove
   echo "✔ Linux packages upgraded!"
 fi
 
