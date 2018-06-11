@@ -87,15 +87,26 @@ brew doctor
 brew tap homebrew/services
 brew tap homebrew/bundle
 
-# Install and configure awesome apps & dev tools.
-read -p "Do you want to install infinityrobot's apps & set up dev environment? <y/n> " brew_prompt
+# Install & configure awesome apps & dev tools.
+read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
 if [[ $brew_prompt =~ [yY](es)* ]]; then
-  # Install Brewfile
-  brew bundle --file="$dotfile_path"/packages/Brewfile -v
+  # Install Brewfile.
+  brew bundle --file="$dotfile_path"/packages/"$platform"/Brewfile -v
   brew cleanup --force
-  rm -f -r /Library/Caches/Homebrew/*
 
-  # Set up rbenv & Ruby (https://github.com/rbenv/rbenv)
+  # Install Atom directly if on Linux.
+  if [[ $platform == "Linux" ]]; then
+    curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+    sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+    sudo apt-get update
+    sudo apt-get install atom
+  fi
+
+  # Install Atom packages from Atomfile.
+  apm install --packages-file "$dotfile_path"/packages/Atomfile
+  apm cleanup
+
+  # Set up rbenv & Ruby (https://github.com/rbenv/rbenv).
   rbenv init
   latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
   rbenv install $latest_ruby_version
@@ -103,10 +114,6 @@ if [[ $brew_prompt =~ [yY](es)* ]]; then
   gem install bundler
   bundle install --gemfile="$dotfile_path"/packages/Gemfile
   rm -f "$dotfile_path"/packages/Gemfile.lock
-
-  # Install Atom packages
-  apm install --packages-file "$dotfile_path"/packages/Atomfile
-  apm cleanup
 
   # Configure git
   git config --global core.editor atom
