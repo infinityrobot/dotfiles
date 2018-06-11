@@ -1,0 +1,17 @@
+# Taps.
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# Brews.
+brew "awscli"
+brew "elixir"
+brew "git"
+brew "memcached"
+brew "node"
+brew "heroku"
+brew "postgresql", restart_service: true
+brew "rbenv"
+brew "redis"
+brew "wget"
+brew "yarn"
