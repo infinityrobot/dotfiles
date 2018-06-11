@@ -33,6 +33,9 @@ fi
 brew update
 brew doctor
 
+# Install zsh using brew.
+brew install zsh
+
 # Set the default shell to zsh.
 if [[ $SHELL == *"zsh"* ]]; then
   echo "✔ Shell already set to zsh!"
