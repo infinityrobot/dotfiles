@@ -8,7 +8,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Brews.
-brew "awscli"
 brew "elixir"
 brew "git"
 brew "mas"
