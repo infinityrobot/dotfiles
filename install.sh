@@ -24,16 +24,17 @@ if [[ $platform == "Darwin" ]]; then
 fi
 
 # ---------------------------------------------------------------------------- #
-# Upgrade Linux packages
+# Linux packages
 # ---------------------------------------------------------------------------- #
 
+# Install base packages & Snapcraft on Linux (https://snapcraft.io).
 if [[ $platform == "Linux" ]]; then
-  echo "Upgrading Linux packages..."
-  sudo apt-get update
-  sudo apt-get install build-essential curl file git
-  sudo apt-get upgrade
+  echo "Installing base Linux packages & Snapcraft..."
+  sudo apt update
+  sudo apt install build-essential curl file git snapd
+  sudo apt upgrade
   sudo apt autoremove
-  echo "✔ Linux packages upgraded!"
+  echo "✔ Base Linux packages installed!"
 fi
 
 # ---------------------------------------------------------------------------- #
