@@ -153,13 +153,6 @@ fi
 read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
 if [[ $brew_prompt =~ [yY](es)* ]]; then
 
-  # Install Atom directly if on Linux.
-  if [[ $platform == "Linux" ]]; then
-    curl -sL https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-    sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
-    sudo apt-get update
-    sudo apt-get install atom
-  fi
 
   # Install Atom packages from Atomfile.
   apm install --packages-file "$dotfile_path"/packages/Atomfile
