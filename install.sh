@@ -80,7 +80,7 @@ if [[ $SHELL == *"zsh"* ]]; then
   echo "✔ Shell already set to zsh!"
 else
   echo "Setting shell to zsh..."
-  chsh -s "$(which zsh)" "$USER"
+  sudo chsh $USER -s $(which zsh)
   echo "✔ Shell set to zsh!"
 fi
 
