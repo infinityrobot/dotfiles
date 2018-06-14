@@ -50,6 +50,12 @@ if [[ $platform == "Darwin" ]]; then
 elif [[ $platform == "Linux" ]]; then
   echo "Installing Linuxbrew..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  # Add Linuxbrew to PATH so we can start to run brew commands.
+  if [[ -d "$HOME/.linuxbrew" ]]; then
+    export PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+  elif [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
+    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+  fi
   echo "✔ Linuxbrew installed!"
 fi
 
