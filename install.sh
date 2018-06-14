@@ -60,6 +60,10 @@ fi
 brew update
 brew doctor
 
+# Install Brewfile.
+brew bundle --file="$dotfile_path"/packages/"$platform"/Brewfile -v
+brew cleanup --force
+
 # ---------------------------------------------------------------------------- #
 # Shell
 # ---------------------------------------------------------------------------- #
@@ -148,9 +152,6 @@ fi
 # Install & configure awesome apps & dev tools.
 read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
 if [[ $brew_prompt =~ [yY](es)* ]]; then
-  # Install Brewfile.
-  brew bundle --file="$dotfile_path"/packages/"$platform"/Brewfile -v
-  brew cleanup --force
 
   # Install Atom directly if on Linux.
   if [[ $platform == "Linux" ]]; then
