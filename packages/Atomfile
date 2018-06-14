@@ -13,6 +13,7 @@ minimap-highlight-selected
 minimap-linter
 minimap-highlight-selected
 pigments
+remote-ftp
 sublime-style-column-selection
 language-haml
 linter-rubocop
