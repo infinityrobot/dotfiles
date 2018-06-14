@@ -41,19 +41,16 @@ fi
 # Brew
 # ---------------------------------------------------------------------------- #
 
-# Install brew if not yet installed.
-if [[ ! -x "$(command -v brew)" ]]; then
-  # Install Homebrew if on macOS (https://github.com/Homebrew/brew).
-  if [[ $platform == "Darwin" ]]; then
-    echo "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo "✔ Homebrew installed!"
-  # Install Linuxbrew if on Linux (https://github.com/Linuxbrew/brew).
-  elif [[ $platform == "Linux" ]]; then
-    echo "Installing Linuxbrew..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    echo "✔ Linuxbrew installed!"
-  fi
+# Install Homebrew if on macOS (https://github.com/Homebrew/brew).
+if [[ $platform == "Darwin" ]]; then
+  echo "Installing Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "✔ Homebrew installed!"
+# Install Linuxbrew if on Linux (https://github.com/Linuxbrew/brew).
+elif [[ $platform == "Linux" ]]; then
+  echo "Installing Linuxbrew..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  echo "✔ Linuxbrew installed!"
 fi
 
 # Update & doctor once installed.
