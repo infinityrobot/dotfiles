@@ -146,30 +146,41 @@ if [ ! -f "$HOME/.zshrc.local" ]; then
 fi
 
 # ---------------------------------------------------------------------------- #
-# Environment
+# Ruby build
 # ---------------------------------------------------------------------------- #
 
-# Install & configure awesome apps & dev tools.
-read -p "Do you want to install infinityrobot's apps & dev environment? <y/n> " brew_prompt
-if [[ $brew_prompt =~ [yY](es)* ]]; then
+# Unlink openssl from Linuxbrew on Linux so we can build Ruby - https://github.com/rbenv/ruby-build/issues/1011.
+if [[ $platform == "Linux" ]]; then
+  brew unlink openssl
+fi
 
+# Set up rbenv & Ruby (https://github.com/rbenv/rbenv).
+rbenv init
+latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
+rbenv install $latest_ruby_version
+rbenv global $latest_ruby_version
+rbenv rehash
+gem install bundler
+bundle install --gemfile="$dotfile_path"/packages/Gemfile
+rm -f "$dotfile_path"/packages/Gemfile.lock
 
-  # Install Atom packages from Atomfile.
+# ---------------------------------------------------------------------------- #
+# Development environment
+# ---------------------------------------------------------------------------- #
+
+# Install Atom packages from Atomfile on macOS.
+if [[ $platform == "Darwin" ]]; then
   apm install --packages-file "$dotfile_path"/packages/Atomfile
   apm cleanup
-
-  # Set up rbenv & Ruby (https://github.com/rbenv/rbenv).
-  rbenv init
-  latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
-  rbenv install $latest_ruby_version
-  rbenv --global $latest_ruby_version
-  gem install bundler
-  bundle install --gemfile="$dotfile_path"/packages/Gemfile
-  rm -f "$dotfile_path"/packages/Gemfile.lock
-
-  # Configure git
-  git config --global core.editor atom
-  git config --global core.excludesfile ~/.gitignore_global
 fi
+
+# Install Heroku via Snaps on Linux.
+if [[ $platform == "Linux" ]]; then
+  sudo snap install heroku --classic
+fi
+
+# Configure git.
+git config --global core.editor atom
+git config --global core.excludesfile ~/.gitignore_global
 
 echo "Installation complete!"
