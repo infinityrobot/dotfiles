@@ -4,7 +4,9 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Brews.
-brew "elixir"
+brew "elixir-build"
+brew "erlang"
+brew "exenv"
 brew "git"
 brew "memcached"
 brew "node"
