@@ -56,7 +56,6 @@ elif [[ $platform == "Linux" ]]; then
   elif [[ -d "/home/linuxbrew/.linuxbrew" ]]; then
     export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
   fi
-  echo "Current PATH is $PATH"
   echo "✔ Linuxbrew installed!"
 fi
 
