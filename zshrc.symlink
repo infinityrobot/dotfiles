@@ -13,7 +13,7 @@ plugins=(brew bundler encode64 git rails)
 source $ZSH/oh-my-zsh.sh
 
 # Custom imports
-for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh"); do
+for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh | sort"); do
   source $f
 done
 
