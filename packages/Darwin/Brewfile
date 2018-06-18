@@ -19,6 +19,7 @@ brew "m-cli"
 brew "node"
 brew "heroku"
 brew "postgresql", restart_service: true
+brew "puma/puma/puma-dev"
 brew "rbenv"
 brew "redis"
 brew "wget"
