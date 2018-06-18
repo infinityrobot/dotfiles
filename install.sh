@@ -29,9 +29,9 @@ fi
 
 # Install base packages & Snapcraft on Linux (https://snapcraft.io).
 if [[ $platform == "Linux" ]]; then
-  echo "Installing base Linux packages & Snapcraft..."
+  echo "Installing base Linux packages..."
   sudo apt update
-  sudo apt install build-essential curl file git snapd
+  sudo apt install build-essential curl file git
   sudo apt upgrade
   sudo apt autoremove
   echo "✔ Base Linux packages installed!"
