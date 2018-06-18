@@ -3,8 +3,10 @@
 # ---------------------------------------------------------------------------- #
 # Variables
 # ---------------------------------------------------------------------------- #
+current_directory=$PWD
 dotfile_path=$HOME/.dotfiles
 platform="$(uname -s)"
+machine="$(uname -m)"
 
 # ---------------------------------------------------------------------------- #
 # Intro
@@ -188,9 +190,22 @@ if [[ $platform == "Darwin" ]]; then
   apm cleanup
 fi
 
-# Install Heroku via Snaps on Linux.
+# Install Linux development tools that can't be installed via Linuxbrew.
 if [[ $platform == "Linux" ]]; then
-  sudo snap install heroku --classic
+  # Heroku.
+  curl https://cli-assets.heroku.com/install.sh | sh
+  # ngrok.
+  base_ngrok_cdn="https://bin.equinox.io/c/4VmDzA7iaHb"
+  cd /tmp
+  if [[ $machine == *"arm"* ]]; then
+    wget $base_ngrok_cdn/ngrok-stable-linux-arm.zip
+  if [[ $machine == *"amd"* ]]; then
+    wget $base_ngrok_cdn/ngrok-stable-linux-amd64.zip
+  fi
+  sudo unzip ngrok* -d /usr/local/bin
+  rm ngrok*
+  cd current_directory
+  echo "Installed ngrok! Don't forget to run ngrok authtoken AUTH_TOKEN to connect your account!"
 fi
 
 # Configure git.
