@@ -40,6 +40,33 @@ if [[ $platform == "Linux" ]]; then
 fi
 
 # ---------------------------------------------------------------------------- #
+# Install / update dotfiles
+# ---------------------------------------------------------------------------- #
+
+install_dotfiles() {
+  echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles..."
+  git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
+}
+
+if [[ -d $dotfile_path ]]; then
+  git_remote=$(git -C "$dotfile_path" config --get branch.master.remote)
+  git_url=$(git -C "$dotfile_path" config --get remote."$git_remote".url)
+
+  if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
+    echo "Infinity Robot's dotfiles already installed. Updating..."
+    git -C "$dotfile_path" pull
+    echo "✔ Updated dotfiles!"
+  else
+    echo "Existing dotfiles found. Backing up to ~/.dotfiles-old..."
+    mv "$dotfile_path" "$dotfile_path"-old
+    echo "✔ Existing dotfiles backed up!"
+    install_dotfiles
+  fi
+else
+  install_dotfiles
+fi
+
+# ---------------------------------------------------------------------------- #
 # Brew
 # ---------------------------------------------------------------------------- #
 
@@ -94,30 +121,6 @@ else
   echo "Installing oh-my-zsh in ~/.oh-my-zsh..."
   git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
   echo "✔ zsh installed!"
-fi
-
-# Install / update infinityrobot's dotfiles.
-install_dotfiles() {
-  echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles..."
-  git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
-}
-
-if [[ -d $dotfile_path ]]; then
-  git_remote=$(git -C "$dotfile_path" config --get branch.master.remote)
-  git_url=$(git -C "$dotfile_path" config --get remote."$git_remote".url)
-
-  if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
-    echo "Infinity Robot's dotfiles already installed. Updating..."
-    git -C "$dotfile_path" pull
-    echo "✔ Updated dotfiles!"
-  else
-    echo "Existing dotfiles found. Backing up to ~/.dotfiles-old..."
-    mv "$dotfile_path" "$dotfile_path"-old
-    echo "✔ Existing dotfiles backed up!"
-    install_dotfiles
-  fi
-else
-  install_dotfiles
 fi
 
 # Add oh-my-zsh customizations.
