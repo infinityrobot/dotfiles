@@ -93,7 +93,7 @@ brew update
 brew doctor
 
 # Install Brewfile.
-brew bundle --file="$dotfile_path"/packages/Brewfile.$platform -v
+brew bundle --file=$dotfile_path/packages/Brewfile.$platform -v
 brew cleanup --force
 
 # ---------------------------------------------------------------------------- #
@@ -115,42 +115,42 @@ fi
 # Install / update oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh).
 if [[ -d $HOME/.oh-my-zsh ]]; then
   echo "oh-my-zsh is already installed, updating..."
-  git -C "$HOME"/.oh-my-zsh pull
+  git -C $HOME/.oh-my-zsh pull
   echo "✔ Updated zsh!"
 else
   echo "Installing oh-my-zsh in ~/.oh-my-zsh..."
-  git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME"/.oh-my-zsh
+  git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
   echo "✔ zsh installed!"
 fi
 
 # Add oh-my-zsh customizations.
 echo "Adding oh-my-zsh customizations from Infinity Robot's dotfiles..."
 theme_name="infinityrobot"
-mkdir -p "$dotfile_path"/oh-my-zsh/custom/themes/
-mkdir -p "$HOME"/.oh-my-zsh/custom/themes/
-ln -s "$dotfile_path"/oh-my-zsh/custom/themes/"$theme_name".zsh-theme "$HOME"/.oh-my-zsh/custom/themes/"$theme_name".zsh-theme 2> /dev/null
+mkdir -p $dotfile_path/oh-my-zsh/custom/themes/
+mkdir -p $HOME/.oh-my-zsh/custom/themes/
+ln -s $dotfile_path/oh-my-zsh/custom/themes/$theme_name.zsh-theme $HOME/.oh-my-zsh/custom/themes/$theme_name.zsh-theme 2> /dev/null
 echo "✔ oh-my-zsh customizations added!"
 
 # Set up symlinks.
 echo "Adding required symlinks..."
 for f in $(find "$dotfile_path/symlinks" -name '*.symlink'); do
-  file_name="${f##*/}"
-  file_path="$HOME"/."${file_name%.*}"
+  file_name=${f##*/}
+  file_path=$HOME/.${file_name%.*}
 
-  if diff "$f" "$file_path" > /dev/null; then
-    echo "Existing $file_name found – copying backup to $file_name-old"
-    cp "$file_path" "$file_path"-old 2> /dev/null
+  if diff $f $file_path > /dev/null; then
+    echo "Existing $file_name found...  copying backup to $file_name-old"
+    cp $file_path $file_path-old 2> /dev/null
   fi
 
-  unlink "$file_path" 2> /dev/null
-  rm "$file_path" 2> /dev/null
-  ln -s "$f" "$file_path"
+  unlink $file_path 2> /dev/null
+  rm $file_path 2> /dev/null
+  ln -s $f $file_path
 done
 echo "✔ Symlinks added!"
 
 # Create .zshrc.local
-if [ ! -f "$HOME/.zshrc.local" ]; then
-  touch "$HOME/.zshrc.local"
+if [ ! -f $HOME/.zshrc.local ]; then
+  touch $HOME/.zshrc.local
 fi
 
 # ---------------------------------------------------------------------------- #
@@ -169,8 +169,8 @@ rbenv install $latest_ruby_version
 rbenv global $latest_ruby_version
 rbenv rehash
 gem install bundler
-bundle install --gemfile="$dotfile_path"/packages/Gemfile
-rm -f "$dotfile_path"/packages/Gemfile.lock
+bundle install --gemfile=$dotfile_path/packages/Gemfile
+rm -f $dotfile_path/packages/Gemfile.lock
 
 # ---------------------------------------------------------------------------- #
 # Elixir build
@@ -190,17 +190,17 @@ exenv rehash
 # Set up Visual Studio Code symlinks.
 echo "Adding vscode symlinks..."
 for f in $(find "$dotfile_path/symlinks/vscode" -name "*.*"); do
-  file_name="${f##*/}"
-  file_path="$HOME"/Library/Application\ Support/Code/User/"${file_name}"
+  file_name=${f##*/}
+  file_path=$HOME/Library/Application\ Support/Code/User/${file_name}
 
-  if diff "$f" "$file_path" > /dev/null; then
+  if diff $f $file_path > /dev/null; then
     echo "Existing $file_name found – copying backup to $file_name-old"
-    cp "$file_path" "$file_path"-old 2> /dev/null
+    cp $file_path $file_path-old 2> /dev/null
   fi
 
-  unlink "$file_path" 2> /dev/null
-  rm "$file_path" 2> /dev/null
-  ln -s "$f" "$file_path"
+  unlink $file_path 2> /dev/null
+  rm $file_path 2> /dev/null
+  ln -s $f $file_path
 done
 echo "✔ vscode symlinks added!"
 
