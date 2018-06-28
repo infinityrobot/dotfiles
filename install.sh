@@ -44,8 +44,9 @@ fi
 # ---------------------------------------------------------------------------- #
 
 install_dotfiles() {
-  echo "Cloning Infinity Robot's dotfiles to ~/.dotfiles..."
+  echo "Cloning infinityrobot's dotfiles to ~/.dotfiles..."
   git clone git://github.com/infinityrobot/dotfiles.git "$dotfile_path"
+  echo "✔ infinityrobot's dotfiles installed!"
 }
 
 if [[ -d $dotfile_path ]]; then
@@ -53,7 +54,7 @@ if [[ -d $dotfile_path ]]; then
   git_url=$(git -C "$dotfile_path" config --get remote."$git_remote".url)
 
   if [[ $git_url == *"infinityrobot/dotfiles"* ]]; then
-    echo "Infinity Robot's dotfiles already installed. Updating..."
+    echo "infinityrobot's dotfiles already installed. Updating..."
     git -C "$dotfile_path" pull
     echo "✔ Updated dotfiles!"
   else
@@ -131,8 +132,8 @@ mkdir -p $HOME/.oh-my-zsh/custom/themes/
 ln -s $dotfile_path/oh-my-zsh/custom/themes/$theme_name.zsh-theme $HOME/.oh-my-zsh/custom/themes/$theme_name.zsh-theme 2> /dev/null
 echo "✔ oh-my-zsh customizations added!"
 
-# Set up symlinks.
-echo "Adding required symlinks..."
+# Set up dotfile symlinks.
+echo "Adding symlinks from dotfiles..."
 for f in $(find "$dotfile_path/symlinks" -name '*.symlink'); do
   file_name=${f##*/}
   file_path=$HOME/.${file_name%.*}
