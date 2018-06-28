@@ -184,11 +184,6 @@ exenv rehash
 # Development environment
 # ---------------------------------------------------------------------------- #
 
-# Install Atom packages from Atomfile on macOS.
-if [[ $platform == "Darwin" ]]; then
-  apm install --packages-file "$dotfile_path"/packages/Atomfile
-  apm cleanup
-fi
 
 # Install Linux development tools that can't be installed via Linuxbrew.
 if [[ $platform == "Linux" ]]; then
