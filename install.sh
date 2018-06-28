@@ -181,9 +181,29 @@ exenv global $latest_elixir_version
 exenv rehash
 
 # ---------------------------------------------------------------------------- #
-# Development environment
+# Visual Studio Code
 # ---------------------------------------------------------------------------- #
 
+# Set up Visual Studio Code symlinks.
+echo "Adding vscode symlinks..."
+for f in $(find "$dotfile_path/symlinks/vscode" -name "*.*"); do
+  file_name="${f##*/}"
+  file_path="$HOME"/Library/Application\ Support/Code/User/"${file_name}"
+
+  if diff "$f" "$file_path" > /dev/null; then
+    echo "Existing $file_name found – copying backup to $file_name-old"
+    cp "$file_path" "$file_path"-old 2> /dev/null
+  fi
+
+  unlink "$file_path" 2> /dev/null
+  rm "$file_path" 2> /dev/null
+  ln -s "$f" "$file_path"
+done
+echo "✔ vscode symlinks added!"
+
+# ---------------------------------------------------------------------------- #
+# Development environment
+# ---------------------------------------------------------------------------- #
 
 # Install Linux development tools that can't be installed via Linuxbrew.
 if [[ $platform == "Linux" ]]; then

@@ -1,0 +1,71 @@
+{
+  // Window.
+  "window.zoomLevel": 0,
+  "window.newWindowDimensions": "maximized",
+
+  // Workbench.
+  "workbench.startupEditor": "none",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.activityBar.visible": false,
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "workbench.iconTheme": "eq-material-theme-icons-palenight",
+
+  // Explorer.
+  "explorer.confirmDelete": false,
+
+  // Editor.
+  "editor.fontSize": 11,
+  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderIndentGuides": true,
+  "editor.insertSpaces": true,
+  "editor.formatOnPaste": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+
+  // Diff editor.
+  "diffEditor.renderSideBySide": false,
+
+  // SCM.
+  "scm.diffDecorationsGutterWidth": 2,
+
+  // Terminal.
+  "terminal.integrated.fontSize": 10,
+  "terminal.external.osxExec": "iTerm2.app",
+
+  // Files.
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  // Themes.
+  "materialTheme.fixIconsRunning": false,
+  "materialTheme.accent": "Cyan",
+
+  // Telemetry - disable this so you don't send usage stats to Microsoft.
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+
+  // Ruby specific config.
+  "ruby.useBundler": true,
+  "ruby.pathToBundler": "/Users/ritchie/.rbenv/shims/bundle",
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.rubocop.executePath": "/Users/ritchie/.rbenv/shims/",
+  "ruby.lint": {
+    "rubocop": true
+  },
+
+  "[ruby]": {
+    "editor.rulers": [80]
+  },
+
+  // Apex specific config.
+  "[apex]": {
+    "editor.rulers": [100]
+  },
+
+}

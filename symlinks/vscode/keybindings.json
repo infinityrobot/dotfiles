@@ -1,0 +1,57 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.showAllSymbols"
+  },
+  {
+    "key": "cmd+t",
+    "command": "-workbench.action.showAllSymbols"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+  },
+  {
+    "key": "cmd+k",
+    "command": "workbench.debug.panel.action.clearReplAction",
+    "when": "inDebugRepl"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "workbench.action.tasks.test",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+r",
+    "command": "workbench.action.tasks.restartTask",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+cmd+r",
+    "command": "workbench.action.tasks.terminate",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "workbench.action.terminal.toggleTerminal"
+  }
+]
