@@ -130,7 +130,7 @@ echo "✔ oh-my-zsh customizations added!"
 
 # Set up symlinks.
 echo "Adding required symlinks..."
-for f in $(find "$dotfile_path" -name '*.symlink'); do
+for f in $(find "$dotfile_path/symlinks" -name '*.symlink'); do
   file_name="${f##*/}"
   file_path="$HOME"/."${file_name%.*}"
 

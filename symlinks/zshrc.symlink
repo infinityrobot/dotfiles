@@ -1,26 +1,26 @@
-# Exports
+# Exports.
 export ZSH=$HOME/.oh-my-zsh
 export DOTFILES=$HOME/.dotfiles
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# Set name of the theme to load
+# Set name of the theme to load.
 ZSH_THEME="infinityrobot"
 
-# Plugins to load
+# Plugins to load.
 plugins=(brew bundler encode64 git rails)
 
-# Load oh-my-zsh
+# Load oh-my-zsh.
 source $ZSH/oh-my-zsh.sh
 
-# Custom imports
+# Custom imports.
 for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh" | sort); do
   source $f
 done
 
-# Load local zshrc
+# Load local zshrc.
 source $HOME/.zshrc.local
 
-# Dotfiles update function
+# Dotfiles update function.
 update_dotfiles() {
   curl -fsSL 'https://raw.githubusercontent.com/infinityrobot/dotfiles/master/install.sh' | bash
 }

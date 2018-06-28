@@ -28,7 +28,7 @@ ANSI[:CYAN]      = "\e[36m"
 ANSI[:WHITE]     = "\e[37m"
 
 # Wrap ANSI escape sequences in Readline ignore markers.
-ANSI.each do |k,v|
+ANSI.each do |_k, v|
   v.replace "\001#{v}\002"
 end
 
@@ -55,7 +55,7 @@ end
 
 # Ensure terminal is reset at exit.
 Kernel.at_exit do
-  puts "#{ANSI[:RESET]}"
+  puts ANSI[:RESET].to_s
 end
 
 # Helper to show methods that are defined directly on an object.
@@ -66,6 +66,4 @@ class Object
 end
 
 # Enable route helpers in Rails console.
-if defined? Rails
-  include Rails.application.routes.url_helpers
-end
+include Rails.application.routes.url_helpers if defined? Rails
