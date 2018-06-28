@@ -27,8 +27,6 @@ brew "yarn"
 
 # Casks.
 cask "java"
-cask "eclipse-java"
-cask "atom"
 cask "audio-hijack"
 cask "dropbox"
 cask "flow"
@@ -46,6 +44,7 @@ cask "skype"
 cask "slack"
 cask "tyke"
 cask "whatsapp"
+cask "visual-studio-code"
 
 # Fonts.
 cask "font-aleo"
