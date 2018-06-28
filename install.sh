@@ -66,7 +66,7 @@ brew update
 brew doctor
 
 # Install Brewfile.
-brew bundle --file="$dotfile_path"/packages/"$platform"/Brewfile -v
+brew bundle --file="$dotfile_path"/packages/Brewfile.$platform -v
 brew cleanup --force
 
 # ---------------------------------------------------------------------------- #
