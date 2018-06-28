@@ -134,7 +134,7 @@ for f in $(find "$dotfile_path/symlinks" -name '*.symlink'); do
   file_name="${f##*/}"
   file_path="$HOME"/."${file_name%.*}"
 
-  if ! diff "$f" "$file_path" >/dev/null ; then
+  if diff "$f" "$file_path" > /dev/null; then
     echo "Existing $file_name found – copying backup to $file_name-old"
     cp "$file_path" "$file_path"-old 2> /dev/null
   fi
