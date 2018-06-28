@@ -13,6 +13,7 @@
 
   // Explorer.
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
 
   // Editor.
   "editor.fontSize": 11,
@@ -66,6 +67,5 @@
   // Apex specific config.
   "[apex]": {
     "editor.rulers": [100]
-  },
-
+  }
 }
