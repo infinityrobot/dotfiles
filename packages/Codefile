@@ -1,0 +1,23 @@
+# Themes.
+equinusocio.vsc-material-theme
+
+# Languages & linters.
+davidanson.vscode-markdownlint
+johnaaronnelson.apex
+johnaaronnelson.forcecode
+johnaaronnelson.visualforce
+karunamurti.haml
+lkytal.coffeelinter
+misogi.ruby-rubocop
+mrmlnc.vscode-scss
+pranaygp.vscode-css-peek
+rebornix.ruby
+salesforce.salesforcedx-vscode
+vayan.haml
+
+# Workbench & file utilities.
+cssho.vscode-svgviewer
+hookyqr.beautify
+kisstkondoros.vscode-gutter-preview
+mikestead.dotenv
+wwm.better-align

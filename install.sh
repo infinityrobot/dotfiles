@@ -201,6 +201,13 @@ for f in $(find "$dotfile_path/symlinks/vscode" -name "*.*"); do
 done
 echo "✔ vscode symlinks added!"
 
+# Install Visual Studio Code extensions.
+while read p; do
+  if [[ $p != "# "* && $p != "" ]]; then
+    code $p
+  fi
+done <$dotfile_path/packages/Codefile
+
 # ---------------------------------------------------------------------------- #
 # Development environment
 # ---------------------------------------------------------------------------- #
