@@ -10,6 +10,7 @@
   "workbench.panel.defaultLocation": "bottom",
   "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  "workbench.statusBar.feedback.visible": false,
 
   // Explorer.
   "explorer.confirmDelete": false,
