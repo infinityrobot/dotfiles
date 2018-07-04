@@ -68,5 +68,39 @@
   // Apex specific config.
   "[apex]": {
     "editor.rulers": [100]
+  },
+
+  // Themes.
+  "editor.tokenColorCustomizations": {
+    "[Material Theme Palenight High Contrast]": {
+      "textMateRules": [{
+          "scope": [
+            "punctuation.definition.variable",
+            "variable.other.readwrite.instance"
+          ],
+          "settings": {
+            "foreground": "#ff5370"
+          }
+        },
+        {
+          "scope": [
+            "string",
+            "entity.other.inherited-class"
+          ],
+          "settings": {
+            "foreground": "#A3E88D"
+          }
+        },
+        {
+          "scope": [
+            "constant.language.nil",
+            "constant.language.boolean"
+          ],
+          "settings": {
+            "foreground": "#f07178"
+          }
+        }
+      ]
+    }
   }
 }
