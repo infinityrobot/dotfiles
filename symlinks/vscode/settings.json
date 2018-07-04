@@ -8,8 +8,6 @@
   "workbench.editor.tabSizing": "shrink",
   "workbench.activityBar.visible": false,
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.colorTheme": "Material Theme Palenight High Contrast",
-  "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.statusBar.feedback.visible": false,
 
   // Explorer.
@@ -71,6 +69,8 @@
   },
 
   // Themes.
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "editor.tokenColorCustomizations": {
     "[Material Theme Palenight High Contrast]": {
       "textMateRules": [{
