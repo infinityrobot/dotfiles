@@ -33,7 +33,7 @@ fi
 if [[ $platform == "Linux" ]]; then
   echo "Installing base Linux packages..."
   sudo apt update
-  sudo apt install build-essential curl file git
+  sudo apt install build-essential curl file git snapd
   sudo apt upgrade
   sudo apt autoremove
   echo "✔ Base Linux packages installed!"
