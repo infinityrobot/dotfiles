@@ -235,7 +235,7 @@ if [[ $platform == "Linux" ]]; then
 fi
 
 # Configure git.
-git config --global core.editor atom
+git config --global core.editor code
 git config --global core.excludesfile ~/.gitignore_global
 
 echo "Installation complete!"
