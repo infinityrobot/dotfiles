@@ -84,6 +84,16 @@
         },
         {
           "scope": [
+            "source",
+            "variable.other",
+            "keyword.query.field"
+          ],
+          "settings": {
+            "foreground": "#AFB5D8"
+          }
+        },
+        {
+          "scope": [
             "string",
             "entity.other.inherited-class"
           ],
@@ -94,10 +104,18 @@
         {
           "scope": [
             "constant.language.nil",
-            "constant.language.boolean"
+            "constant.language.boolean",
+            "storage.type"
           ],
           "settings": {
             "foreground": "#f07178"
+          }
+        },
+        {
+          "scope": [
+            "constant.language"
+          ],
+          "settings": {
           }
         }
       ]
