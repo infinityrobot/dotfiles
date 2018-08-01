@@ -10,6 +10,7 @@ karunamurti.haml
 lkytal.coffeelinter
 misogi.ruby-rubocop
 mrmlnc.vscode-scss
+octref.vetur
 pranaygp.vscode-css-peek
 rebornix.ruby
 salesforce.salesforcedx-vscode
