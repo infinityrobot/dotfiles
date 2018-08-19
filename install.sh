@@ -186,11 +186,11 @@ rm -f $dotfile_path/packages/Gemfile.lock
 # ---------------------------------------------------------------------------- #
 
 # Set up exenv & Elixir (https://github.com/mururu/exenv).
-exenv init
-latest_elixir_version="$(exenv install -l | head -n 3 | tail -n 1)"
-exenv install $latest_elixir_version
-exenv global $latest_elixir_version
-exenv rehash
+# exenv init
+# latest_elixir_version="$(exenv install -l | head -n 3 | tail -n 1)"
+# exenv install $latest_elixir_version
+# exenv global $latest_elixir_version
+# exenv rehash
 
 # ---------------------------------------------------------------------------- #
 # Visual Studio Code
