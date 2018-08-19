@@ -113,7 +113,11 @@ else
   if ! grep -Fxq "$(which zsh)" /etc/shells; then
     sudo bash -c "echo $(which zsh) >> /etc/shells"
   fi
-  sudo chsh $USER -s $(which zsh)
+  if [[ $platform == "Darwin" ]]; then
+    chsh -s $(which zsh)
+  else
+    sudo chsh $USER -s $(which zsh)
+  fi
   echo "✔ Shell set to zsh!"
 fi
 
