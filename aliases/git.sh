@@ -1,1 +1,1 @@
-alias grs='git reset --soft HEAD~1'
+alias grs="git reset --soft HEAD~1"
