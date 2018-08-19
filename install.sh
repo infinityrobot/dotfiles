@@ -271,4 +271,15 @@ git config --global user.name $git_name
 read -p "What email do you use for git? " git_email
 git config --global user.email $git_email
 
+# ---------------------------------------------------------------------------- #
+# macOS config
+# ---------------------------------------------------------------------------- #
+
+if [[ $platform == "Darwin" ]]; then
+  read -p "Would you like to use infinityrobot's macOS preferences & config? " -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]] then
+    source $DOTFILES/config/macos.sh
+  fi
+fi
+
 echo "Installation complete!"
