@@ -277,7 +277,7 @@ git config --global user.email $git_email
 
 if [[ $platform == "Darwin" ]]; then
   read -p "Would you like to use infinityrobot's macOS preferences & config? " macos_preference
-  if [[ $macos_preference =~ ^(?:[Yy](?:es))$ ]] then
+  if [[ $macos_preference =~ ^(?:[Yy](?:es))$ ]]; then
     source $DOTFILES/config/macos.sh
   fi
 fi
