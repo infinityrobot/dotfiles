@@ -7,7 +7,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 ZSH_THEME="infinityrobot"
 
 # Plugins to load.
-plugins=(brew bundler encode64 git rails)
+plugins=(brew bundler encode64 git rails rbenv ruby vscode yarn)
 
 # Load oh-my-zsh.
 source $ZSH/oh-my-zsh.sh
