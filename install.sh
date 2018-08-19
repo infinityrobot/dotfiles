@@ -234,6 +234,10 @@ if [[ $platform == "Linux" ]]; then
   echo "Installed ngrok! Don't forget to run ngrok authtoken AUTH_TOKEN to connect your account!"
 fi
 
+# ---------------------------------------------------------------------------- #
+# Git
+# ---------------------------------------------------------------------------- #
+
 # Configure git.
 git config --global core.editor code
 git config --global core.excludesfile ~/.gitignore_global
