@@ -164,7 +164,7 @@ if [[ $platform == "Linux" ]]; then
 fi
 
 # Set up rbenv & Ruby (https://github.com/rbenv/rbenv).
-rbenv init
+eval "$(rbenv init -)"
 latest_ruby_version="$(rbenv install -l | grep -v - | tail -1)"
 rbenv install $latest_ruby_version
 rbenv global $latest_ruby_version
