@@ -235,6 +235,29 @@ if [[ $platform == "Linux" ]]; then
 fi
 
 # ---------------------------------------------------------------------------- #
+# iTerm2
+# ---------------------------------------------------------------------------- #
+
+# Set up iTerm2 symlinks if on macOS.
+if [[ $platform == "Darwin" ]]; then
+  echo "Adding iTerm2 symlinks..."
+  for f in $(find "$dotfile_path/symlinks/iterm2" -name "*.*"); do
+    file_name=${f##*/}
+    file_path=$HOME/Library/Preferences/${file_name}
+
+    if diff $f $file_path > /dev/null; then
+      echo "Existing $file_name found – copying backup to $file_name-old"
+      cp $file_path $file_path-old 2> /dev/null
+    fi
+
+    unlink $file_path 2> /dev/null
+    rm $file_path 2> /dev/null
+    ln -s $f $file_path
+  done
+  echo "✔ iTerm2 symlinks added!"
+fi
+
+# ---------------------------------------------------------------------------- #
 # Git
 # ---------------------------------------------------------------------------- #
 
