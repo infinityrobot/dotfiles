@@ -21,8 +21,7 @@ alias enable_dashboard="defaults write com.apple.dashboard mcx-disabled NO; kill
 # Print the path
 alias path="echo $PATH | tr -s ':' '\n'"
 
-# Refresh UI
-alias refresh_ui='killall SystemUIServer'
-
-# Restart Finder
-alias restart_finder='killall Finder'
+# Restarts.
+alias restart_dock="killall Dock"
+alias restart_finder="killall Finder"
+alias restart_ui="killall SystemUIServer"
