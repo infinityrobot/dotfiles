@@ -263,6 +263,12 @@ fi
 
 # Configure git.
 git config --global core.editor code
-git config --global core.excludesfile ~/.gitignore_global
+git config --global core.excludesfile $HOME/.gitignore_global
+
+read -p "What name do you use for git? " git_name
+git config --global user.name $git_name
+
+read -p "What email do you use for git? " git_email
+git config --global user.email $git_email
 
 echo "Installation complete!"
