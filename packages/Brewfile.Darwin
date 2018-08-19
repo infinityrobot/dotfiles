@@ -27,6 +27,7 @@ brew "wget"
 brew "yarn"
 
 # Casks.
+cask "1password"
 cask "audio-hijack"
 cask "dropbox"
 cask "flow"
