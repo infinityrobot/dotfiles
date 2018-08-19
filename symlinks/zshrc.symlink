@@ -12,8 +12,8 @@ plugins=(brew bundler encode64 git rails rbenv ruby vscode yarn)
 # Load oh-my-zsh.
 source $ZSH/oh-my-zsh.sh
 
-# Custom imports.
-for f in $(find $DOTFILES -name '*.sh' ! -iname "install.sh" | sort); do
+# Import aliases & path initializers.
+for f in $(find $DOTFILES/aliases $DOTFILES/init -name "*.sh" | sort); do
   source $f
 done
 
