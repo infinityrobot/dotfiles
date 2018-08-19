@@ -208,7 +208,7 @@ echo "✔ vscode symlinks added!"
 # Install Visual Studio Code extensions.
 while read p; do
   if [[ $p != "# "* && $p != "" ]]; then
-    code $p
+    code --install-extension $p
   fi
 done <$dotfile_path/packages/Codefile
 
