@@ -109,6 +109,10 @@ if [[ $SHELL == *"zsh"* ]]; then
   echo "✔ Shell already set to zsh!"
 else
   echo "Setting shell to zsh..."
+  # Add brew zsh to /etc/shells so we can switch properly.
+  if ! grep -Fxq "$(which zsh)" /etc/shells; then
+    sudo bash -c "echo $(which zsh) >> /etc/shells"
+  fi
   sudo chsh $USER -s $(which zsh)
   echo "✔ Shell set to zsh!"
 fi
