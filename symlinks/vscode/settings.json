@@ -24,6 +24,7 @@
   "editor.formatOnPaste": true,
   "editor.scrollBeyondLastLine": false,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.rulers": [80],
 
   // Diff editor.
   "diffEditor.renderSideBySide": false,
