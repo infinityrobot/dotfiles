@@ -62,9 +62,9 @@
   },
 
   // Apex specific config.
-  "[apex]": {
-    "editor.rulers": [100]
-  },
+  "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents",
+
+  "[apex]": { "editor.rulers": [100] },
 
   // Themes.
   "workbench.colorTheme": "Material Theme Palenight High Contrast",
