@@ -2,6 +2,7 @@
 equinusocio.vsc-material-theme
 
 # Languages & linters.
+castwide.solargraph
 davidanson.vscode-markdownlint
 karunamurti.haml
 lkytal.coffeelinter
