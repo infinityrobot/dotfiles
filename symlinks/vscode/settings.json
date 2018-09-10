@@ -52,15 +52,13 @@
   // Ruby specific config.
   "ruby.useBundler": true,
   "ruby.pathToBundler": "/Users/ritchie/.rbenv/shims/bundle",
-  "ruby.codeCompletion": "rcodetools",
-  "ruby.intellisense": "rubyLocate",
+  "ruby.format": "rubocop",
   "ruby.rubocop.executePath": "/Users/ritchie/.rbenv/shims/",
-  "ruby.lint": {
-    "rubocop": true
-  },
-
-  "[ruby]": {
-    "editor.rulers": [80]
+  "ruby.lint": { "rubocop": true },
+  "[ruby]": { "editor.rulers": [80] },
+  "ruby.locate": {
+    "exclude": "{**/@(db|test|spec|tmp|.*),**/@(db|test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
   },
 
   // Apex specific config.
