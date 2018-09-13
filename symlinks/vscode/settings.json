@@ -11,6 +11,7 @@
   "workbench.statusBar.feedback.visible": false,
 
   // Explorer.
+  "explorer.autoReveal": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
 
