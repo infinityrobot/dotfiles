@@ -16,8 +16,8 @@
   "explorer.confirmDragAndDrop": false,
 
   // Editor.
-  "editor.fontSize": 11,
-  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 10,
+  "editor.fontFamily": "SFMono-Regular, Hack, Monaco, Menlo, Courier, monospace",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.renderIndentGuides": true,
