@@ -98,6 +98,13 @@ brew bundle --file=$dotfile_path/packages/Brewfile.$platform -v
 brew cleanup --force
 
 # ---------------------------------------------------------------------------- #
+# Fonts (not included in Brewfile)
+# ---------------------------------------------------------------------------- #
+
+# Install SF Mono font - https://simonfredsted.com/1438.
+cp -f /Applications/Utilities/Terminal.app/Contents/Resources/Fonts/*.otf $HOME/Library/Fonts
+
+# ---------------------------------------------------------------------------- #
 # Shell
 # ---------------------------------------------------------------------------- #
 
