@@ -4,6 +4,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Brews.
+brew "bash"
 brew "curl"
 brew "elixir-build"
 brew "erlang", args: %w[ignore-dependencies]
@@ -15,4 +16,5 @@ brew "postgresql", restart_service: true
 brew "rbenv"
 brew "redis"
 brew "wget"
+brew "xmlstarlet"
 brew "yarn"

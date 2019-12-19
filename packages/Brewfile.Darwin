@@ -8,6 +8,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Brews.
+brew "bash"
 brew "curl"
 brew "elixir-build"
 brew "erlang"
@@ -19,11 +20,13 @@ brew "mitmproxy"
 brew "m-cli"
 brew "node"
 brew "heroku"
+brew "jq"
 brew "postgresql", restart_service: true
 brew "puma/puma/puma-dev"
 brew "rbenv"
 brew "redis"
 brew "wget"
+brew "xmlstarlet"
 brew "yarn"
 
 # Casks.
