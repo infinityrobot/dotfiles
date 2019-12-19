@@ -10,6 +10,8 @@ brew "elixir-build"
 brew "erlang", args: %w[ignore-dependencies]
 brew "exenv"
 brew "git"
+brew "git-lfs"
+brew "hub"
 brew "memcached"
 brew "node"
 brew "postgresql", restart_service: true
