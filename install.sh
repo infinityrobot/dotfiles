@@ -148,6 +148,11 @@ ln -s $dotfile_path/oh-my-zsh/custom/themes/$theme_name.zsh-theme $HOME/.oh-my-z
 echo "✔ oh-my-zsh customizations added!"
 
 # Set up dotfile symlinks.
+current_directory=$PWD
+dotfile_path=$HOME/.dotfiles
+platform="$(uname -s)"
+machine="$(uname -m)"
+
 echo "Adding symlinks from dotfiles..."
 for f in $(find "$dotfile_path/symlinks" -name '*.symlink'); do
   file_name=${f##*/}
