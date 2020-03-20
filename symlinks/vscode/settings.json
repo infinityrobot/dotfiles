@@ -6,17 +6,20 @@
   // Workbench.
   "workbench.startupEditor": "none",
   "workbench.editor.tabSizing": "shrink",
-  "workbench.activityBar.visible": false,
-  "workbench.panel.defaultLocation": "bottom",
-  "workbench.statusBar.feedback.visible": false,
+  "workbench.activityBar.visible": true,
+  "workbench.panel.defaultLocation": "right",
+
+  // UI features.
+  "breadcrumbs.enabled": true,
 
   // Explorer.
   "explorer.autoReveal": false,
+  "explorer.compactFolders": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
 
   // Editor.
-  "editor.fontSize": 10,
+  "editor.fontSize": 11,
   "editor.fontFamily": "SFMono-Regular, Hack, Monaco, Menlo, Courier, monospace",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
@@ -26,51 +29,80 @@
   "editor.scrollBeyondLastLine": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.rulers": [80],
+  "editor.renderControlCharacters": true,
 
   // Diff editor.
   "diffEditor.renderSideBySide": false,
 
   // SCM.
   "scm.diffDecorationsGutterWidth": 2,
+  "scm.defaultViewMode": "tree",
 
   // Terminal.
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "terminal.integrated.fontSize": 10,
+  "terminal.integrated.scrollback": 2500,
   "terminal.external.osxExec": "iTerm2.app",
+
+  // Debug console.
+  "debug.console.fontSize": 10,
+
+  // Log output.
+  "[Log]": {
+    "editor.fontSize": 10
+  },
 
   // Files.
   "files.autoSave": "onFocusChange",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-
-  // Themes.
-  "materialTheme.fixIconsRunning": false,
-  "materialTheme.accent": "Cyan",
+  "files.exclude": {
+    "**/.git": false
+  },
 
   // Telemetry - disable this so you don't send usage stats to Microsoft.
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
 
+  // Problems.
+  "problems.showCurrentInStatus": true,
+
   // Ruby specific config.
   "ruby.useBundler": true,
   "ruby.pathToBundler": "/Users/ritchie/.rbenv/shims/bundle",
   "ruby.format": "rubocop",
-  "ruby.rubocop.executePath": "/Users/ritchie/.rbenv/shims/",
+  "ruby.intellisense": false,
+  "ruby.codeCompletion": false,
   "ruby.lint": { "rubocop": true },
-  "[ruby]": { "editor.rulers": [80] },
-  "ruby.locate": {
-    "exclude": "{**/@(db|test|spec|tmp|.*),**/@(db|test|spec|tmp|.*)/**,**/*_spec.rb}",
-    "include": "**/*.rb"
+  // "ruby.locate": { "exclude": "**/*.rb"},
+
+  "[ruby]": {
+    "editor.rulers": [80]
   },
 
+  // Javascript specific config.
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "eslint.packageManager": "yarn",
+
   // Apex specific config.
-  "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents",
+  "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home",
+  "salesforcedx-vscode-core.orgBrowser.enabled": true,
+  "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
+  "salesforcedx-vscode-core.show-cli-success-msg": false,
+  "[apex]": {
+    "editor.rulers": [120]
+  },
 
-  "[apex]": { "editor.rulers": [100] },
+  // TODO Highlight.
+  "todohighlight.keywords": [
+    "NOTE:"
+  ],
 
-  // Themes.
+  // Theme.
   "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  "materialTheme.accent": "Bright Teal",
   "editor.tokenColorCustomizations": {
     "[Material Theme Palenight High Contrast]": {
       "textMateRules": [{
