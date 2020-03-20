@@ -29,7 +29,7 @@
   {
     "key": "cmd+k",
     "command": "workbench.debug.panel.action.clearReplAction",
-    "when": "inDebugRepl"
+    "when": "activePanel == 'workbench.panel.repl'"
   },
   {
     "key": "shift+cmd+r",
@@ -53,5 +53,50 @@
   {
     "key": "shift+cmd+a",
     "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "alt+v s",
+    "command": "git.stageSelectedRanges"
+  },
+  {
+    "key": "shift+cmd+v",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "alt+v c",
+    "command": "git.commitStaged"
+  },
+  {
+    "key": "alt+v a",
+    "command": "git.stageAll"
+  },
+  {
+    "key": "alt+v x",
+    "command": "git.unstageAll"
+  },
+  {
+    "key": "alt+v u",
+    "command": "git.unstageSelectedRanges"
+  },
+  {
+    "key": "alt+v d",
+    "command": "git.openChange"
+  },
+  {
+    "key": "alt+v m",
+    "command": "git.commitStagedAmend"
+  },
+  {
+    "key": "alt+cmd+e",
+    "command": "workbench.view.extension.metadata"
+  },
+  {
+    "key": "cmd+k",
+    "command": "workbench.output.action.clearOutput",
+    "when": "activePanel == 'workbench.panel.output'"
   }
 ]
