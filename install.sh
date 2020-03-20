@@ -291,6 +291,9 @@ git config --global user.name $git_name
 read -p "What email do you use for git? " git_email
 git config --global user.email $git_email
 
+# Install LFS - https://git-lfs.github.com.
+git lfs install
+
 # ---------------------------------------------------------------------------- #
 # macOS config
 # ---------------------------------------------------------------------------- #
